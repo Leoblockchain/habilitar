@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>habilit.AR | Habilitaciones Córdoba</title>
+    <!-- Herramientas externas -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Lucide React para componentes de iconos -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide-react@latest/dist/umd/lucide-react.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #F5F2EB; 
+            color: #1e293b; 
+        }
+        @keyframes float { 
+            0%, 100% { transform: translateY(0px); } 
+            50% { transform: translateY(-15px); } 
+        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+        .selection-emerald::selection { background-color: #d1fae5; }
+    </style>
+</head>
+<body class="selection-emerald">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const MessageCircle = () => <span className="text-2xl">💬</span>;
+        const ArrowRight = () => <span className="text-xl">➡️</span>;
+        const ShieldCheck = () => <span className="text-xl">🛡️</span>;
+
+        const App = () => {
+            const assets = {
+                logo: 'Logo6.png',
+                qr: 'QrAWhatsapp2.png',
+                heroPhoto: '1778388991817.png',
+                gestion: 'GestionDeTramites.png',
+                optimizacion: 'OptimizacionDeProcesos.png'
+            };
+
+            const whatsappNumber = "3516568592";
+            const whatsappLink = `https://wa.me/${whatsappNumber}`;
+
+            return (
+                <div className="min-h-screen flex flex-col">
+                    {/* Navegación */}
+                    <nav className="sticky top-0 z-50 bg-[#F5F2EB]/90 backdrop-blur-md border-b border-emerald-900/10">
+                        <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+                            <img src={assets.logo} alt="Habilit.ar" className="h-10 object-contain" />
+                            <div className="hidden md:flex gap-10 text-sm font-bold uppercase tracking-widest text-emerald-900/60">
+                                <a href="#inicio" className="hover:text-emerald-600 transition-colors">Inicio</a>
+                                <a href="#servicios" className="hover:text-emerald-600 transition-colors">Servicios</a>
+                            </div>
+                            <a 
+                                href={whatsappLink} 
+                                target="_blank" 
+                                className="bg-emerald-600 text-white px-6 py-2.5 rounded-full font-bold text-sm hover:bg-emerald-700 transition-all shadow-lg shadow-emerald-200"
+                            >
+                                Consultar Ahora
+                            </a>
+                        </div>
+                    </nav>
+
+                    {/* Hero Section */}
+                    <header id="inicio" className="relative pt-16 pb-24 overflow-hidden">
+                        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+                            <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-700">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100/50 text-emerald-800 rounded-lg text-xs font-bold uppercase tracking-wider border border-emerald-200">
+                                    <ShieldCheck size={14} />
+                                    Habilitaciones en Córdoba Capital
+                                </div>
+                                <h1 className="text-5xl md:text-7xl font-extrabold text-emerald-950 leading-tight">
+                                    Nosotros nos encargamos del <span className="text-emerald-600">papeleo.</span>
+                                </h1>
+                                <p className="text-2xl md:text-3xl text-emerald-900/60 font-light">
+                                    Para que vos te enfoques en las <span className="font-semibold text-emerald-950 underline decoration-emerald-400 decoration-4 underline-offset-4">ventas.</span>
+                                </p>
+                                <div className="pt-4">
+                                    <div className="flex flex-col lg:flex-row items-center gap-6">
+                                        <a 
+                                            href={whatsappLink} 
+                                            target="_blank" 
+                                            rel="noreferrer noopener"
+                                            className="inline-flex bg-emerald-950 text-white px-8 py-5 rounded-2xl font-bold text-lg hover:bg-emerald-800 transition-all items-center gap-3 shadow-2xl hover:scale-105 active:scale-95"
+                                        >
+                                            <MessageCircle size={24} />
+                                            Contactar por WhatsApp
+                                            <ArrowRight size={20} />
+                                        </a>
+
+                                        <div className="flex flex-col items-center gap-3 bg-white/90 border border-emerald-200 rounded-3xl p-4 shadow-2xl">
+                                            <img 
+                                                src={assets.qr} 
+                                                className="w-28 h-28 object-contain rounded-xl" 
+                                                alt="QR WhatsApp" 
+                                            />
+                                            <p className="text-sm text-emerald-950 font-semibold text-center">
+                                                Escaneá el QR y contactate por WhatsApp
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Imagen Flotante con QR */}
+                            <div className="relative flex justify-center animate-in fade-in zoom-in-95 duration-1000 delay-200">
+                                <div className="absolute inset-0 bg-emerald-200/30 rounded-full blur-3xl -z-10 translate-y-10 scale-90"></div>
+                                <div className="relative w-full max-w-md aspect-[4/5] bg-white rounded-[3rem] shadow-2xl border-8 border-white overflow-hidden animate-float">
+                                    <img 
+                                        src={assets.heroPhoto} 
+                                        className="w-full h-full object-cover" 
+                                        alt="Local Habilitado" 
+                                        onError={(e) => e.target.src = "https://images.unsplash.com/photo-1556740734-607a13067911?auto=format&fit=crop&q=80&w=800"}
+                                    />
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Sección de Servicios */}
+                    <section id="servicios" className="py-24 bg-[#EBE7DD]/30">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="grid md:grid-cols-2 gap-12">
+                                {/* Card 1: Gestión */}
+                                <div className="bg-white rounded-[2.5rem] p-10 flex flex-col items-center text-center shadow-sm border border-emerald-900/5 hover:shadow-xl transition-all duration-300">
+                                    <div className="w-full h-48 mb-8 overflow-hidden rounded-2xl bg-[#F5F2EB] flex items-center justify-center">
+                                        <img src={assets.gestion} className="h-full object-contain p-6" alt="Gestión de trámites" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold mb-4 text-emerald-950">Gestión de Trámites</h3>
+                                    <p className="text-emerald-900/60 leading-relaxed italic">
+                                        "Manejamos toda la burocracia por vos para que tu negocio nunca se detenga."
+                                    </p>
+                                </div>
+
+                                {/* Card 2: Optimización */}
+                                <div className="bg-white rounded-[2.5rem] p-10 flex flex-col items-center text-center shadow-sm border border-emerald-900/5 hover:shadow-xl transition-all duration-300">
+                                    <div className="w-full h-48 mb-8 overflow-hidden rounded-2xl bg-[#F5F2EB] flex items-center justify-center">
+                                        <img src={assets.optimizacion} className="h-full object-contain p-6" alt="Optimización de procesos" />
+                                    </div>
+                                    <h3 className="text-2xl font-bold mb-4 text-emerald-950">Optimización de Procesos</h3>
+                                    <p className="text-emerald-900/60 leading-relaxed italic">
+                                        "Asesoría técnica para cumplir con normativas de la manera más eficiente."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="py-12 border-t border-emerald-900/5 text-center">
+                        <p className="text-emerald-900/30 text-xs font-bold uppercase tracking-widest">
+                            © 2026 Habilit.ar Córdoba - Expertos en Normativa Municipal
+                        </p>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
