@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habilitar | Habilitaciones de Negocios y Trámites en Córdoba Capital</title>
@@ -51,9 +50,9 @@
             const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
             return (
-                <div className="min-h-screen flex flex-col">
+                <div className="min-h-screen flex flex-col w-full overflow-x-hidden">
                     {/* Navegación */}
-                    <nav className="sticky top-0 z-50 bg-[#F5F2EB]/90 backdrop-blur-md border-b border-emerald-900/10">
+                    <nav className="sticky top-0 z-50 bg-[#F5F2EB]/90 backdrop-blur-md border-b border-emerald-900/10 w-full">
                         <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
                             <img src={assets.logo} alt="Habilit.ar" className="h-10 object-contain" />
                             <div className="hidden md:flex gap-10 text-sm font-bold uppercase tracking-widest text-emerald-900/60">
@@ -70,57 +69,50 @@
                         </div>
                     </nav>
 
-                    {/* Hero Section */}
-                    <header id="inicio" className="relative pt-8 pb-16 lg:pt-16 lg:pb-24 overflow-hidden flex-grow flex items-center">
-                        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+                    {/* Hero Section - Corregido para móviles */}
+                    <header id="inicio" className="relative pt-6 pb-12 lg:pt-16 lg:pb-24 flex-grow flex items-center w-full">
+                        <div className="max-w-7xl mx-auto px-4 md:px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center w-full">
                             
-                            {/* Columna Izquierda: Textos y QR Correctamente Centrados */}
-                            <div className="space-y-6 lg:space-y-8 animate-in fade-in slide-in-from-left-8 duration-700 flex flex-col items-center lg:items-start text-center lg:text-left">
+                            {/* Columna Izquierda: Textos y QR Adaptables */}
+                            <div className="space-y-6 lg:space-y-8 flex flex-col items-center lg:items-start text-center lg:text-left w-full max-w-full overflow-hidden">
                                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-100/50 text-emerald-800 rounded-lg text-xs font-bold uppercase tracking-wider border border-emerald-200">
                                     <ShieldCheck />
                                     Habilitaciones en Córdoba Capital
                                 </div>
-                                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-emerald-950 leading-tight w-full">
-                                    Nosotros nos encargamos del <span class="text-emerald-600">papeleo.</span>
+                                <h1 className="text-3xl md:text-5xl lg:text-7xl font-extrabold text-emerald-950 leading-tight w-full balance">
+                                    Nosotros nos encargamos del <span className="text-emerald-600">papeleo.</span>
                                 </h1>
-                                <p class="text-xl md:text-2xl lg:text-3xl text-emerald-900/60 font-light w-full">
-                                    Para que vos te enfoques en las <span class="font-semibold text-emerald-950 underline decoration-emerald-400 decoration-4 underline-offset-4">ventas</span>
+                                <p className="text-lg md:text-xl lg:text-2xl text-emerald-900/60 font-light w-full">
+                                    Para que vos te enfoques en las <span className="font-semibold text-emerald-950 underline decoration-emerald-400 decoration-4 underline-offset-4">ventas</span>
                                 </p>
                                 
-                                <div class="pt-2 w-full flex flex-col items-center lg:items-start gap-6">
-                                    {/* Contenedor del QR: Centrado responsivo perfecto */}
-                                    <div class="w-full flex justify-center lg:justify-start">
-                                        {/* Tarjeta del QR */}
-                                        <div class="flex flex-col items-center bg-white p-5 rounded-3xl shadow-md w-full max-w-[280px] border border-emerald-900/5">
-                                            <img
-                                                src={assets.qr}
-                                                class="w-24 h-24 object-contain rounded-xl"
-                                                alt="QR WhatsApp"
-                                            />
-                                            <p class="text-xs text-emerald-950 font-semibold mt-2.5 text-center leading-tight">
-                                                Escaneá el QR y contactate por WhatsApp
-                                            </p>
-                                        </div>
-                                    </div>
+                                <div className="pt-2 w-full flex flex-col items-center lg:items-start gap-6">
+                                    {/* Bloque QR Blanco */}
+<div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 w-full max-w-sm mx-auto lg:mx-0">
+    <img src={assets.qr} className="w-24 h-24 mx-auto object-contain rounded-xl" alt="QR WhatsApp" />
+    <p className="text-sm text-emerald-950 font-semibold mt-3 text-center">
+        Escaneá el QR y contactate por WhatsApp
+    </p>
+</div>
 
-                                    {/* Línea de Medios de Pago - Texto más grande, en un renglón y fluido en móviles */}
-                                    <div class="w-full overflow-x-auto scrollbar-none py-1">
-                                        <p class="text-lg md:text-xl text-emerald-800 font-extrabold tracking-wide whitespace-nowrap text-center lg:text-left">
-                                            💳 Aceptamos todos los medios de pago: Efectivo, Transferencias, Tarjetas y QR.
-                                        </p>
-                                    </div>
+{/* El texto de pagos va ACÁ AFUERA, justo abajo del bloque blanco */}
+<div className="w-full max-w-sm mt-4 text-center lg:text-left">
+    <p className="text-sm text-gray-700 font-medium px-2">
+        Aceptamos todos los medios de pago: Efectivo, Transferencias, Tarjetas y QR.
+    </p>
+</div>
                                 </div>
                             </div>
-                                                                            
-                            {/* Columna Derecha: Foto del Local Habilitado */}
-                            <div class="relative flex justify-center animate-in fade-in zoom-in-95 duration-1000 delay-200 w-full">
-                                <div class="absolute inset-0 bg-emerald-200/30 rounded-full blur-3xl -z-10 translate-y-10 scale-90"></div>
-                                <div class="relative w-full max-w-[340px] md:max-w-md aspect-[4/5] bg-white rounded-[2.5rem] lg:rounded-[3rem] shadow-2xl border-4 md:border-8 border-white overflow-hidden animate-float">
+                                                                                                        
+                            {/* Columna Derecha: Foto del Local Autoadaptable */}
+                            <div className="relative flex justify-center w-full">
+                                <div className="absolute inset-0 bg-emerald-200/30 rounded-full blur-3xl -z-10 translate-y-10 scale-90"></div>
+                                <div className="relative w-full max-w-[290px] sm:max-w-[340px] md:max-w-md aspect-[4/5] bg-white rounded-[2.5rem] lg:rounded-[3rem] shadow-2xl border-4 md:border-8 border-white overflow-hidden animate-float">
                                     <img
                                         src={assets.heroPhoto}
-                                        class="w-full h-full object-cover"
+                                        className="w-full h-full object-cover"
                                         alt="Local Habilitado"
-                                        onError={(e) => e.target.src = "https://images.unsplash.com/photo-1556740734-607a13067911?auto=format&fit=crop&q=80&w=800"}
+                                        onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1556740734-607a13067911?auto=format&fit=crop&q=80&w=800" }}
                                     />
                                 </div>
                             </div>
@@ -129,28 +121,28 @@
                     </header>
 
                     {/* Sección Servicios */}
-                    <section id="servicios" class="py-20 bg-[#F5F2EB]">
-                        <div class="max-w-7xl mx-auto px-6">
-                            <h2 class="text-4xl font-extrabold text-center mb-16 text-emerald-950">Nuestros Servicios</h2>
-                            <div class="grid md:grid-cols-2 gap-8">
+                    <section id="servicios" className="py-20 bg-[#F5F2EB] w-full">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <h2 className="text-4xl font-extrabold text-center mb-16 text-emerald-950">Nuestros Servicios</h2>
+                            <div className="grid md:grid-cols-2 gap-8">
                                 {/* Card 1: Gestión */}
-                                <div class="bg-white rounded-[2.5rem] p-10 flex flex-col items-center text-center shadow-sm border border-emerald-900/5 hover:shadow-xl transition-all duration-300">
-                                    <div class="w-full h-48 mb-8 overflow-hidden rounded-2xl bg-[#F5F2EB] flex items-center justify-center">
-                                        <img src={assets.gestion} class="h-full object-contain p-6" alt="Gestión de trámites" />
+                                <div className="bg-white rounded-[2.5rem] p-10 flex flex-col items-center text-center shadow-sm border border-emerald-900/5 hover:shadow-xl transition-all duration-300">
+                                    <div className="w-full h-48 mb-8 overflow-hidden rounded-2xl bg-[#F5F2EB] flex items-center justify-center">
+                                        <img src={assets.gestion} className="h-full object-contain p-6" alt="Gestión de trámites" />
                                     </div>
-                                    <h3 class="text-2xl font-bold mb-4 text-emerald-950">Gestión Integral de Trámites</h3>
-                                    <p class="text-emerald-900/60 leading-relaxed italic">
+                                    <h3 className="text-2xl font-bold mb-4 text-emerald-950">Gestión Integral de Trámites</h3>
+                                    <p className="text-emerald-900/60 leading-relaxed italic">
                                         "Manejamos toda la burocracia por vos para que tu negocio nunca se detenga. Tenemos un equipo de profesionales que se encargan de cada paso del proceso, desde la presentación de documentos hasta la obtención de tu habilitación."
                                     </p>
                                 </div>
 
                                 {/* Card 2: Optimización */}
-                                <div class="bg-white rounded-[2.5rem] p-10 flex flex-col items-center text-center shadow-sm border border-emerald-900/5 hover:shadow-xl transition-all duration-300">
-                                    <div class="w-full h-48 mb-8 overflow-hidden rounded-2xl bg-[#F5F2EB] flex items-center justify-center">
-                                        <img src={assets.optimizacion} class="h-full object-contain p-6" alt="Optimización de procesos" />
+                                <div className="bg-white rounded-[2.5rem] p-10 flex flex-col items-center text-center shadow-sm border border-emerald-900/5 hover:shadow-xl transition-all duration-300">
+                                    <div className="w-full h-48 mb-8 overflow-hidden rounded-2xl bg-[#F5F2EB] flex items-center justify-center">
+                                        <img src={assets.optimizacion} className="h-full object-contain p-6" alt="Optimización de procesos" />
                                     </div>
-                                    <h3 class="text-2xl font-bold mb-4 text-emerald-950">Optimización de Procesos</h3>
-                                    <p class="text-emerald-900/60 leading-relaxed italic">
+                                    <h3 className="text-2xl font-bold mb-4 text-emerald-950">Optimización de Procesos</h3>
+                                    <p className="text-emerald-900/60 leading-relaxed italic">
                                         "Asesoría Jurídica en materia de derecho inmobiliario, administrativo, laboral y comercial. Asesoría Contable para cumplir con normativas de la manera más eficiente. Registro y defensa de marcas y patentes para proteger tu identidad comercial."
                                     </p>
                                 </div>
@@ -159,8 +151,8 @@
                     </section>
 
                     {/* Footer */}
-                    <footer class="py-12 border-t border-emerald-900/5 text-center mt-auto">
-                        <p class="text-emerald-900/30 text-xs font-bold uppercase tracking-widest">
+                    <footer className="py-12 border-t border-emerald-900/5 text-center mt-auto w-full">
+                        <p className="text-emerald-900/30 text-xs font-bold uppercase tracking-widest">
                             © 2026 Habilit.ar Córdoba - Expertos en Normativa Municipal
                         </p>
                     </footer>
